@@ -1,21 +1,17 @@
 package com.example.lks2026_mobile
 
-/** Satu baris pada daftar pesanan (GET /orders). */
+/** Satu baris daftar pesanan. toString() = teks yang tampil di ListView. */
 data class Order(
     val orderId: Int,
     val supplierName: String,
     val orderDate: String,
     val status: String
-)
+) {
+    override fun toString() = "#$orderId  •  $status\n$supplierName  ($orderDate)"
+}
 
-/** Satu item bahan di dalam detail pesanan. */
-data class OrderItem(
-    val itemName: String,
-    val quantity: Int,
-    val unit: String
-)
+data class OrderItem(val itemName: String, val quantity: Int, val unit: String)
 
-/** Detail lengkap sebuah pesanan (GET /orders/{id}). */
 data class OrderDetail(
     val orderId: Int,
     val supplierName: String,
